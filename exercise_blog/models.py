@@ -26,7 +26,7 @@ class Comment(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     comment = models.TextField()
     approved = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering =["created_on"]
