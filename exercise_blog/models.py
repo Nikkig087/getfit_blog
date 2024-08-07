@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Not Published"), (1, "Published"))
 
 class Exercise(models.Model):
+    id = AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     instructions = models.TextField()
@@ -22,6 +23,7 @@ class Exercise(models.Model):
         return f"{self.title} | written by {self.instructor}"
 
 class Comment(models.Model):
+    id: AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     comment = models.TextField()
